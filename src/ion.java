@@ -1,4 +1,3 @@
-import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
 import lib.FileUtilManager;
 public class ion {
     public static void main(String[] args) {
@@ -14,7 +13,7 @@ public class ion {
         */
 
         // production only
-            file = "/Users/macair/Desktop/ion/test/test.txt";
+            file = "/Users/macair/Desktop/IonGit/test/test.txt";
 
         FileUtilManager fileUtilManager = new FileUtilManager(file);
         System.out.println(fileUtilManager.GetContents());
