@@ -1,5 +1,8 @@
 package lib;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class GeneralUtils {
     // Identifiers for the file size function in "FileUtilManager"
     public enum BYTE_SIZES {
@@ -23,6 +26,12 @@ public class GeneralUtils {
             err.printStackTrace();
         }
         return -1;
+    }
+
+    public static float RoundToNthDecimal(float number, int place) {
+        BigDecimal bd = new BigDecimal(number);
+        bd = bd.setScale(place, RoundingMode.HALF_UP);
+        return bd.floatValue();
     }
 }
 

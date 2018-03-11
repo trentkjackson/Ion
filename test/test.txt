@@ -1,1 +1,5 @@
-hello
+.my_class {
+    background: blue450 *;
+    color: red;
+    font-size: 300px;
+}
