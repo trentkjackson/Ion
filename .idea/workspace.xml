@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/lib/FileUtilManager.java" line="18" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="779eb191-d78e-453e-806a-3a5e35c6ce5d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/IonGit/lib/FileUtilManager$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/IonGit/lib/GeneralUtils$BYTE_SIZES.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/IonGit/lib/GeneralUtils.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/lib/GeneralUtils.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/IonGit/ion.class" afterPath="$PROJECT_DIR$/out/production/IonGit/ion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/IonGit/lib/FileUtilManager$1.class" afterPath="$PROJECT_DIR$/out/production/IonGit/lib/FileUtilManager$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/IonGit/lib/FileUtilManager.class" afterPath="$PROJECT_DIR$/out/production/IonGit/lib/FileUtilManager.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/IonGit/lib/GeneralUtils.class" afterPath="$PROJECT_DIR$/out/production/IonGit/lib/GeneralUtils.class" />
       <change beforePath="$PROJECT_DIR$/src/ion.java" afterPath="$PROJECT_DIR$/src/ion.java" />
       <change beforePath="$PROJECT_DIR$/src/lib/FileUtilManager.java" afterPath="$PROJECT_DIR$/src/lib/FileUtilManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/lib/GeneralUtils.java" afterPath="$PROJECT_DIR$/src/lib/GeneralUtils.java" />
+      <change beforePath="$PROJECT_DIR$/test/test.txt" afterPath="$PROJECT_DIR$/test/test.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +28,8 @@
       <file leaf-file-name="ion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="184">
+              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,34 +41,41 @@
         <entry file="file://$PROJECT_DIR$/test/test.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+              <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUtilManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileUtilManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/FileUtilManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+            <state relative-caret-position="0">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
-                <element signature="e#236#237#0" expanded="true" />
-                <element signature="e#287#288#0" expanded="true" />
-                <element signature="e#1678#1679#0" expanded="true" />
-                <element signature="e#1705#1706#0" expanded="true" />
-                <element signature="e#1744#1745#0" expanded="true" />
-                <element signature="e#1776#1777#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#265#266#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#857#858#0" expanded="true" />
+                <element signature="e#922#923#0" expanded="true" />
+                <element signature="e#5149#5150#0" expanded="true" />
+                <element signature="e#5176#5177#0" expanded="true" />
+                <element signature="e#5215#5216#0" expanded="true" />
+                <element signature="e#5247#5248#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneralUtils.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GeneralUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/GeneralUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="26" />
+            <state relative-caret-position="184">
+              <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -93,9 +103,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/lib/ParseException.java" />
         <option value="$PROJECT_DIR$/src/lib/ParseError.java" />
-        <option value="$PROJECT_DIR$/src/lib/GeneralUtils.java" />
+        <option value="$PROJECT_DIR$/src/EventManager.java" />
         <option value="$PROJECT_DIR$/src/lib/FileUtilManager.java" />
+        <option value="$PROJECT_DIR$/test/test.txt" />
         <option value="$PROJECT_DIR$/src/ion.java" />
+        <option value="$PROJECT_DIR$/src/lib/GeneralUtils.java" />
       </list>
     </option>
   </component>
@@ -296,12 +308,12 @@
       <option name="presentableId" value="Default" />
       <updated>1520663445533</updated>
       <workItem from="1520663447639" duration="121000" />
-      <workItem from="1520684706718" duration="2315000" />
+      <workItem from="1520684706718" duration="14934000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2436000" />
+    <option name="totallyTimeSpent" value="15055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -362,12 +374,19 @@
         <state relative-caret-position="759">
           <caret line="39" column="0" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="e#236#237#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#1678#1679#0" expanded="true" />
-            <element signature="e#1705#1706#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#5149#5150#0" expanded="true" />
+            <element signature="e#5176#5177#0" expanded="true" />
+            <element signature="e#5215#5216#0" expanded="true" />
+            <element signature="e#5247#5248#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -388,44 +407,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/GeneralUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/EventManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="26" />
+        <state relative-caret-position="138">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/FileUtilManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#5149#5150#0" expanded="true" />
+            <element signature="e#5176#5177#0" expanded="true" />
+            <element signature="e#5215#5216#0" expanded="true" />
+            <element signature="e#5247#5248#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="184">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/FileUtilManager.java">
+    <entry file="file://$PROJECT_DIR$/src/lib/GeneralUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-          <folding>
-            <element signature="e#236#237#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#1678#1679#0" expanded="true" />
-            <element signature="e#1705#1706#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
