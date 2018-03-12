@@ -15,9 +15,9 @@ public class main {
         */
 
         // production only
-        file = "C:\\Users\\trent\\Desktop\\IonGit\\test\\test.txt";
+        file = "/Users/macair/Desktop/IonGit/test/test.txt";
 
-        FileUtilManager fileUtilManager = new FileUtilManager(file);
+        FileUtilManager fileUtilManager = new FileUtilManager(file, "osx");
         fileUtilManager.WatchForChange();
     }
 }

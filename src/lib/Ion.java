@@ -39,8 +39,14 @@ public class Ion {
 
         /* Interpreter handles words etc here. */
         String[][] INTERNAL = {
-                {"blue450"},
-                {"#EF3540"}
+                // Entry[0][7] will be replaced with Entry[1][7] etc etc.
+                {"red50", "red100", "red150", "red200", "red300", "red400", "red500", "red600", "red700", "red800",
+                "red900", "red100A", "red200A", "red400A", "red700A", "pink50", "pink100", "pink200", "pink300",
+                "pink400", "pink500", "pink500", "pink600", "pink700", "pink800", "pink900", "pink100A", "pink200A"},
+                {"#FFEBEEE", "#FFCDD2", "#EF9A9A", "#E57373", "#EF5350", "#F44336", "#E53935", "#D32F2F", "#C62828",
+                "#B71C1C", "#FF8A80", "#FF5252", "#FF1744", "#D50000", "#FCE4EC", "#F8BBD0", "#F48FB1", "#F06292",
+                "#EC407A", "#E91E63", "#D81B60", "#C2185B", "#AD1457", "#880E4F", "#FF80AB", "#FF4081", "#F50057",
+                "#C51162"}
         };
         Map<String, String> interpreter = new Hashtable<String, String>();
 

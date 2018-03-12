@@ -1,5 +1,5 @@
-.my_class {
-    background: blue450 *;
-    color: red;
-    font-size: 300px;
+.my_ion_class {
+    background: red400;
+    color: pink100A;
+    left: 50% *;
 }
