@@ -1,5 +1,6 @@
-.my_ion_class {
-    background: red400;
-    color: pink100A;
-    left: 50% *;
+(MyVar): blue;
+
+.my_class {
+    color: red900;
+    background: (MyVar) *;
 }
