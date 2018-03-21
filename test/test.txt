@@ -1,6 +1,9 @@
 (MyVar): blue;
+(MySecondVar): orange;
+(anothoVariadsadl): #EEEEEE;
 
 .my_class {
     color: red900;
     background: (MyVar) *;
+    color: (anothoVariadsadl);
 }

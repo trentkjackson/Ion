@@ -2,6 +2,7 @@ package lib;
 
 import lib.FileUtilManager;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Ion {
@@ -17,6 +18,7 @@ public class Ion {
 
     public String Parse() {
         String ionCode = this.fileManager.GetContents();
+        ionCode = ionCode.trim().replaceAll("\n", " ");
 
         /* Interpreter handles single character shortcuts here, e.g. * is turned into !important. */
         String replacements[][] = {
@@ -49,33 +51,29 @@ public class Ion {
                 "#C51162"}
         };
 
+        List<String> INTERNAL_VARIABLE = new ArrayList<>(Arrays.asList(INTERNAL[0]));
+        List<String> INTERNAL_REPLACEMENT = new ArrayList<>(Arrays.asList(INTERNAL[1]));
 
-        Map<String, String> interpreter = new Hashtable<String, String>();
+
+        Map<String, String> interpreter = new Hashtable<>();
 
         ionCodeArray = ionCode.split(" ");
 
         for(int j = 0; j < ionCodeArray.length; j++) {
-            if(ionCodeArray[j].trim().startsWith("(") && ionCodeArray[j].trim().contains(":")) {
+            if(ionCodeArray[j].trim().contains("(") && ionCodeArray[j].contains(")") && ionCodeArray[j].trim().contains(":")) {
                 String variableName = ionCodeArray[j].substring(0, ionCodeArray[j].indexOf(":")).replaceAll(":", "").trim();
                 String variable = ionCodeArray[j + 1].substring(0, ionCodeArray[j + 1].indexOf(";")).replaceAll(";", "").trim();
-
-                String[][] INTERNAL_NEW = new String[2][INTERNAL[0].length + 1];
-                for(int i = 0; i < INTERNAL[1].length; i++) {
-                    INTERNAL_NEW[0][i] = INTERNAL[0][i];
-                    INTERNAL_NEW[1][i] = INTERNAL[1][i];
-                }
-                INTERNAL_NEW[0][INTERNAL_NEW[0].length - 1] = variableName.trim();
-                INTERNAL_NEW[1][INTERNAL_NEW[0].length - 1] = variable.trim();
-                INTERNAL = INTERNAL_NEW;
+                INTERNAL_VARIABLE.add(variableName.trim());
+                INTERNAL_REPLACEMENT.add(variable.trim());
             }
         }
 
-        for(int r = 0; r < INTERNAL[0].length; r++) {
-            interpreter.put(INTERNAL[0][r], INTERNAL[1][r]);
+        for(int r = 0; r < INTERNAL_VARIABLE.size(); r++) {
+            interpreter.put(INTERNAL_VARIABLE.get(r), INTERNAL_REPLACEMENT.get(r));
         }
 
         interpreter.forEach((k, v) -> {
-           // System.out.println(k + "-->" + v);
+           System.out.println(k + "-->" + v);
         });
 
         for(int l = 0; l < ionCodeArray.length; l++) {
@@ -86,20 +84,13 @@ public class Ion {
                     ionCodeArray[l + 1] = ionCodeArray[l + 1].substring(ionCodeArray[l + 1].indexOf(";") + 1, ionCodeArray[l + 1].length());
                 }
                 if(formattedKey.contains(";") && !formattedKey.contains(".")) {
-                    if(ionCodeArray[l].contains("}")) {
-                        ionCodeArray[l] = ionCodeArray[l].substring(0, ionCodeArray[l].indexOf(";") + 1).trim() + "}";
-                        if(ionCodeArray[l].trim().equals(key + ";}")) {
-                            ionCodeArray[l] = interpreter.get(key) + ";}";
-                        }
-                    } else {
-                        ionCodeArray[l] = ionCodeArray[l].substring(0, ionCodeArray[l].indexOf(";" ) + 1).trim();
-                        if(ionCodeArray[l].trim().equals(key + ";")) {
-                            ionCodeArray[l] = interpreter.get(key) + ";\n";
-                        }
+                    ionCodeArray[l] = ionCodeArray[l].substring(0, ionCodeArray[l].length()).trim();
+                    if(ionCodeArray[l].trim().equals(key + ";")) {
+                        ionCodeArray[l] = interpreter.get(key) + ";\n";
                     }
                 } else {
                     if(ionCodeArray[l].trim().equals(key)) {
-                        ionCodeArray[l] = interpreter.get(key);
+                        ionCodeArray[l] = interpreter.get(key) + ";";
                     }
                 }
             }
