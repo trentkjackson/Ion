@@ -7,3 +7,25 @@
     background: (MyVar) *;
     color: (anothoVariadsadl) *;
 }
+
+(MyNewVariable): orange;
+
+.my_otherclass {
+    color: (MyNewVariable);
+}
+
+$(MyMixin) {
+    color: red;
+    background: orange;
+}
+
+$(MyOtherMixin) {
+    width: 50%;
+    height: 72%;
+}
+
+.my_mixinclass {
+    $MyMixin;
+    color: blue;
+    $MyOtherMixin;
+}

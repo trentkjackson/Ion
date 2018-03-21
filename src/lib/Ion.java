@@ -68,12 +68,42 @@ public class Ion {
             }
         }
 
+        // MIXINS
+        List<String> MixinNames = new ArrayList<>();
+        List<String> Mixins = new ArrayList<>();
+
+        for(int i = 0; i < ionCodeArray.length; i++) {
+            if(ionCodeArray[i].contains("(") && ionCodeArray[i].contains(")") && ionCodeArray[i].contains("$")) {
+                String mixinName = ionCodeArray[i].trim().replaceAll("[()\n]", "");
+                String mixinCode;
+                StringBuilder mixinCodeBuilder = new StringBuilder();
+                int m = 2;
+
+
+                /*
+                FIXME: Doesn't include long strings of code such as 'box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);' and 'transform: translateX(-50%, -50%);'
+                 */
+                while(!ionCodeArray[i + m].trim().contains("}") && !ionCodeArray[i + m].trim().equals("\n")) {
+                    mixinCodeBuilder.append(ionCodeArray[i + m].trim().replaceAll("\n", ""));
+                    m++;
+                }
+                mixinCode = mixinCodeBuilder.toString();
+                MixinNames.add(mixinName);
+                Mixins.add(mixinCode);
+                System.out.println(mixinName + " ------ " + mixinCode);
+            }
+        }
+
+        for(int r = 0; r < MixinNames.size(); r++) {
+            interpreter.put(MixinNames.get(r), Mixins.get(r));
+        }
+
         for(int r = 0; r < INTERNAL_VARIABLE.size(); r++) {
             interpreter.put(INTERNAL_VARIABLE.get(r), INTERNAL_REPLACEMENT.get(r));
         }
 
         interpreter.forEach((k, v) -> {
-           // System.out.println(k + "-->" + v);
+            System.out.println(k + "-->" + v);
         });
 
         for(int l = 0; l < ionCodeArray.length; l++) {
@@ -83,10 +113,23 @@ public class Ion {
                     ionCodeArray[l] = "";
                     ionCodeArray[l + 1] = ionCodeArray[l + 1].substring(ionCodeArray[l + 1].indexOf(";") + 1, ionCodeArray[l + 1].length());
                 }
+                if(formattedKey.contains("(") && formattedKey.contains(")") && formattedKey.contains("$")) {
+                    ionCodeArray[l] = "";
+                    int m = 0;
+                    while(!ionCodeArray[l + m].contains("}")) {
+                        ionCodeArray[l + m] = "";
+                        m++;
+                    }
+                    ionCodeArray[l + m] = "";
+                }
                 if(formattedKey.contains(";") && !formattedKey.contains(".")) {
                     ionCodeArray[l] = ionCodeArray[l].substring(0, ionCodeArray[l].length()).trim();
                     if(ionCodeArray[l].trim().equals(key + ";")) {
-                        ionCodeArray[l] = interpreter.get(key) + ";\n";
+                        if(ionCodeArray[l].trim().contains("$")) {
+                            ionCodeArray[l] = interpreter.get(key);
+                        } else {
+                            ionCodeArray[l] = interpreter.get(key) + ";\n";
+                        }
                     }
                 } else {
                     if(formattedKey.trim().equals(key)) {
@@ -102,6 +145,7 @@ public class Ion {
         }
 
         ionCode = String.join("", ionCodeArray);
+
         return ionCode;
     }
 }
