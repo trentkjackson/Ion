@@ -73,7 +73,7 @@ public class Ion {
         }
 
         interpreter.forEach((k, v) -> {
-           System.out.println(k + "-->" + v);
+           // System.out.println(k + "-->" + v);
         });
 
         for(int l = 0; l < ionCodeArray.length; l++) {
@@ -89,8 +89,13 @@ public class Ion {
                         ionCodeArray[l] = interpreter.get(key) + ";\n";
                     }
                 } else {
-                    if(ionCodeArray[l].trim().equals(key)) {
-                        ionCodeArray[l] = interpreter.get(key) + ";";
+                    if(formattedKey.trim().equals(key)) {
+                        for(int i = 0; i < replacements[0].length; i++) {
+                            if(ionCodeArray[l + 1].contains(replacements[0][i])) {
+                                return ionCodeArray[l] = interpreter.get(key);
+                            }
+                        }
+                        ionCodeArray[l] = interpreter.get(key);
                     }
                 }
             }
