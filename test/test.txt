@@ -23,6 +23,7 @@ $(MyOtherMixin) {
     width: 50%;
     height: 72%;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    transform: translate(-50%, -50%) *;
 }
 
 .my_mixinclass {

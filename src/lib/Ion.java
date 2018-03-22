@@ -18,15 +18,31 @@ public class Ion {
 
     public String Parse() {
         String ionCode = this.fileManager.GetContents();
-        List<String> DontMinifyKeywords = new ArrayList<>(Arrays.asList("box-shadow:"));
+
+        /* Interpreter handles single character shortcuts here, e.g. * is turned into !important. */
+        String replacements[][] = {
+                {"*"},
+                {"!important"}
+        };
+
+        List<String> DontMinifyKeywords = new ArrayList<>(Arrays.asList("box-shadow:", "font:", "border:", "transform:"));
         String encode_wanted_whitespace_array[] = ionCode.trim().replaceAll("\n", " ").split(" ");
+        mainLoop:
         for(int i = 0; i < encode_wanted_whitespace_array.length; i++) {
             for(int x = 0; x < DontMinifyKeywords.size(); x++) {
                 if(encode_wanted_whitespace_array[i].contains(DontMinifyKeywords.get(x))) {
-                    int u = 1;
+                    int u = 2;
                     while(!encode_wanted_whitespace_array[i + u].contains(";")) {
-                        encode_wanted_whitespace_array[i + u] = "%20%" + encode_wanted_whitespace_array[i + u];
+                        if(!encode_wanted_whitespace_array[i + u].contains("!important")) {
+                            encode_wanted_whitespace_array[i + u] = "%20%" + encode_wanted_whitespace_array[i + u];
+                        }
+
                         u++;
+                    }
+                    for(int q = 0; q < replacements[0].length; q++) {
+                        if(encode_wanted_whitespace_array[i + u].contains(replacements[0][q])) {
+                            break mainLoop;
+                        }
                     }
                     encode_wanted_whitespace_array[i + u] = "%20%" + encode_wanted_whitespace_array[i + u];
                 }
@@ -35,11 +51,7 @@ public class Ion {
 
         ionCode = String.join(" ", encode_wanted_whitespace_array).trim().replaceAll("\n", " ");
 
-        /* Interpreter handles single character shortcuts here, e.g. * is turned into !important. */
-        String replacements[][] = {
-                {"*"},
-                {"!important"}
-        };
+
         Map<String, String> replacementsMap = new Hashtable<>();
         for(int i = 0; i < replacements[0].length; i++) {
             replacementsMap.put(replacements[0][i], replacements[1][i]);
