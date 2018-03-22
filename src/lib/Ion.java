@@ -18,14 +18,29 @@ public class Ion {
 
     public String Parse() {
         String ionCode = this.fileManager.GetContents();
-        ionCode = ionCode.trim().replaceAll("\n", " ");
+        List<String> DontMinifyKeywords = new ArrayList<>(Arrays.asList("box-shadow:"));
+        String encode_wanted_whitespace_array[] = ionCode.trim().replaceAll("\n", " ").split(" ");
+        for(int i = 0; i < encode_wanted_whitespace_array.length; i++) {
+            for(int x = 0; x < DontMinifyKeywords.size(); x++) {
+                if(encode_wanted_whitespace_array[i].contains(DontMinifyKeywords.get(x))) {
+                    int u = 1;
+                    while(!encode_wanted_whitespace_array[i + u].contains(";")) {
+                        encode_wanted_whitespace_array[i + u] = "%20%" + encode_wanted_whitespace_array[i + u];
+                        u++;
+                    }
+                    encode_wanted_whitespace_array[i + u] = "%20%" + encode_wanted_whitespace_array[i + u];
+                }
+            }
+        }
+
+        ionCode = String.join(" ", encode_wanted_whitespace_array).trim().replaceAll("\n", " ");
 
         /* Interpreter handles single character shortcuts here, e.g. * is turned into !important. */
         String replacements[][] = {
                 {"*"},
                 {"!important"}
         };
-        Map<String, String> replacementsMap = new Hashtable<String, String>();
+        Map<String, String> replacementsMap = new Hashtable<>();
         for(int i = 0; i < replacements[0].length; i++) {
             replacementsMap.put(replacements[0][i], replacements[1][i]);
         }
@@ -82,8 +97,12 @@ public class Ion {
 
                 /*
                 FIXME: Doesn't include long strings of code such as 'box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);' and 'transform: translateX(-50%, -50%);'
+                ^^ FIXED BUT THERE IS NEW ERROR
+                FIXME: minimized code is changing 'box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);' into 'box-shadow:10px10px5px0pxrgba(0,0,0,0.75);'
+                ^^ fixed i think!
                  */
                 while(!ionCodeArray[i + m].trim().contains("}") && !ionCodeArray[i + m].trim().equals("\n")) {
+                    System.out.println(mixinName + "-+->" + ionCodeArray[i + m].trim().replaceAll("\n", ""));
                     mixinCodeBuilder.append(ionCodeArray[i + m].trim().replaceAll("\n", ""));
                     m++;
                 }
@@ -109,7 +128,7 @@ public class Ion {
         for(int l = 0; l < ionCodeArray.length; l++) {
             for(String key : interpreter.keySet()) {
                 String formattedKey = ionCodeArray[l].trim().replaceAll("\n", "");
-                if(formattedKey.contains("(") && formattedKey.contains(")") && formattedKey.contains(":")) {
+                if(formattedKey.contains("(") && formattedKey.contains(")") && formattedKey.endsWith(":")) {
                     ionCodeArray[l] = "";
                     ionCodeArray[l + 1] = ionCodeArray[l + 1].substring(ionCodeArray[l + 1].indexOf(";") + 1, ionCodeArray[l + 1].length());
                 }
@@ -144,28 +163,8 @@ public class Ion {
             }
         }
 
-        ionCode = String.join("", ionCodeArray);
+        ionCode = String.join("", ionCodeArray).replaceAll("%20%", " ");
 
         return ionCode;
     }
 }
-
-
-        /*
-        for(int j = 0; j < ionCodeArray.length; j++) {
-            if(ionCodeArray[j].startsWith("(") && ionCodeArray[j].contains(")") && ionCodeArray[j].endsWith(":")) {
-                System.out.println(ionCodeArray[j].replace(":", "").trim());
-                String variableName = ionCodeArray[j].replace(":", "").trim();
-                String variable = ionCodeArray[j + 1].replace(";", "").trim();
-                String[][] INTERNAL_NEW = new String[2][INTERNAL[0].length + 1];
-                for(int i = 0; i < INTERNAL[1].length; i++) {
-                    INTERNAL_NEW[0][i] = INTERNAL[0][i];
-                    INTERNAL_NEW[1][i] = INTERNAL[1][i];
-                }
-                INTERNAL_NEW[0][INTERNAL_NEW[0].length - 1] = variableName.trim();
-                INTERNAL_NEW[1][INTERNAL_NEW[0].length - 1] = variable.trim();
-                Arrays.stream(INTERNAL_NEW[0]).forEach(i -> System.out.println(i));
-                INTERNAL = INTERNAL_NEW;
-            }
-        }
-        */
