@@ -6,15 +6,42 @@ lib.Ion is a **CSS pre-processor\*\* being built with Java. It's main goal is to
 ## Example of the preprocessor:
 [ **Ion** Code ]
 ```sass
-  (MyVar): blue;
-  .my_class {
-	  color: red900;
-	  background: (MyVar) *;
-  }  
+(MyVar): blue;
+(MySecondVar): orange;
+(anothoVariadsadl): #EEEEEE;
+
+.my_class {
+    color: red900;
+    background: (MyVar) *;
+    color: (anothoVariadsadl) *;
+}
+
+(MyNewVariable): orange;
+
+.my_otherclass {
+    color: (MyNewVariable);
+}
+
+$(MyMixin) {
+    color: red;
+    background: orange;
+}
+
+$(MyOtherMixin) {
+    width: 50%;
+    height: 72%;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.my_mixinclass {
+    $MyMixin;
+    color: blue;
+    $MyOtherMixin;
+}
  ```  
 [ **CSS** Output (*automatic minimization*) ]
 ```css
-.my_class{color:#FF8A80;background:blue!important;}
+.my_class{color:#FF8A80;background:blue!important;color:#EEEEEE!important;}.my_otherclass{color:orange;}.my_mixinclass{color:red;background:orange;color:blue;width:50%;height:72%;box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);}
 ```
   
   
