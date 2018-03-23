@@ -1,5 +1,4 @@
-import lib.FileUtilManager;
-import lib.GeneralUtils;
+import core.FileUtilManager;
 
 public class main {
     public static void main(String[] args) {

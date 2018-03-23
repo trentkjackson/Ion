@@ -5,6 +5,7 @@
 .my_class {
     color: red900;
     background: (MyVar) *;
+    margin: 25px;
     color: (anothoVariadsadl) *;
 }
 
